@@ -101,7 +101,12 @@ function initFormHandler() {
     // B9. TODO - Get the recipes array from localStorage, add this new recipe to it, and
     //            then save the recipes array back to localStorage
     let recipes = getRecipesFromStorage();
-    recipes.push(recipeObject);
+    if(recipes !== null){ // if recipes was not null
+      recipes.push(recipeObject); // then append input recipe to recpies
+    }
+    else{ // otherwise recipes was null
+      recipes = [recipeObject]; // make a recipes an array with the new item
+    }
     saveRecipesToStorage(recipes);
   });
 
